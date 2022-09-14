@@ -18,7 +18,14 @@ class _OperationState extends State<Operation> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          color: Colors.blue,
+          decoration: const BoxDecoration(
+              boxShadow: [BoxShadow(blurRadius: 10.0)],
+              gradient: LinearGradient(
+                colors: [Color(0xfff32e20), Color(0xff3d4eaf)],
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+              )),
+          // color: Colors.blue,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             Obx(() => OpWidget(text: appController.op1.toString())),
@@ -37,7 +44,6 @@ class OpWidget extends StatelessWidget {
   const OpWidget({Key? key, required this.text}) : super(key: key);
 
   final String text;
-
   @override
   Widget build(BuildContext context) {
     return Text(text,
